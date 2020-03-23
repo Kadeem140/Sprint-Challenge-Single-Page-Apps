@@ -12,6 +12,7 @@ export default function CharacterCard({character}) {
     console.log('Character Card props', character)
   return (
       <div>
+          <img src={character.image} alt={character.name} />
           <h1>{character.name}</h1>
             <p>{character.status}</p>
             <p>{character.species}</p>
