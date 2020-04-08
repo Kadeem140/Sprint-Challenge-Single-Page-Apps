@@ -13,7 +13,7 @@ export default function CharacterList() {
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios.get(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/`)
       .then(res => {
-        console.log(res)
+        console.log('Character List props',res)
         setChar(res.data.results)
       })
       .catch(err=> console.log(err))
@@ -22,7 +22,8 @@ export default function CharacterList() {
   return (
     <section className="character-list">
 
-    <SearchForm />
+      <SearchForm char={char} setChar= {setChar} />
+
       {char.map(character =>{
         return <CharacterCard character={character} key={character.id}/>
       })}
